@@ -5,9 +5,39 @@
   <hr/>
   <div class="row">
     <div class="col-xs-12">
+      <button
+        class="btn btn-primary"
+        (click)="onChangeFirst()"
+        >Change first Element</button>
+      <button
+        class="btn btn-danger"
+        (click)="onChangeDestroy()"
+        >Destroy first Element</button>
       <app-server-element
         *ngFor="let serverElement of serverElements"
-        [serverElement]="serverElement"></app-server-element>
+        [serverElement]="serverElement"
+        [name]="serverElement.name">
+        <p #paragraph class="mb-0"><strong
+          *ngIf="serverElement.type === 'server'"
+          style="color:red"
+          >{{serverElement.content}}</strong>
+          <em
+            *ngIf="serverElement.type === 'blueprint'"
+            style="color:blue"
+            >{{serverElement.content}}</em>
+        </p>
+      </app-server-element>
     </div>
   </div>
 </div>
+<app-game-control
+  [count]="startCount"
+  (gameStart)="getEvenOrOdd($event)"
+  >
+  <p *ngIf="startCount/2 === 0; else odd">
+    <app-even>{{startCount}}</app-even>
+  </p>
+  <p #odd>
+    <app-odd>{{startCount}}</app-odd>
+  </p>
+</app-game-control>
