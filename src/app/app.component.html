@@ -30,14 +30,20 @@
     </div>
   </div>
 </div>
-<app-game-control
+<div class="container">
+  <app-game-control
   [count]="startCount"
   (gameStart)="getEvenOrOdd($event)"
   >
-  <p *ngIf="startCount/2 === 0; else odd">
-    <app-even>{{startCount}}</app-even>
-  </p>
-  <p #odd>
-    <app-odd>{{startCount}}</app-odd>
-  </p>
-</app-game-control>
+  </app-game-control>
+  <div class="row">
+    <div class="colxs-12">
+      <app-even [evenNum]="evenNum" *ngFor="let evenNum of evenNumbers"></app-even>
+    </div>
+  </div>
+  <div class="row">
+    <div class="colxs-12">
+      <app-odd [oddNum]="oddNum" *ngFor="let oddNum of oddNumbers"></app-odd>
+    </div>
+  </div>
+</div>

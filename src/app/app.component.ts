@@ -9,6 +9,8 @@ import { Server } from './server.model';
 export class AppComponent {
   title = 'components-databinding';
   startCount: number = 0;
+  oddNumbers : number[] = [];
+  evenNumbers : number[] = [];
 
   serverElements: Server[] = [{name: 'Test Server', type: 'blueprint', content: 'Sample'}];
 
@@ -33,7 +35,12 @@ export class AppComponent {
   }
 
   getEvenOrOdd(countUpdate: {count: number}){
-    this.startCount = countUpdate.count;
+    console.log(countUpdate.count);
+    if(countUpdate.count %2 === 0){
+      this.evenNumbers.push(countUpdate.count);
+    } else {
+      this.oddNumbers.push(countUpdate.count);
+    }
   }
 
 }

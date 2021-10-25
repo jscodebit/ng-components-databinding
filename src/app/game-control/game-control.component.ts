@@ -14,8 +14,8 @@ export class GameControlComponent {
   onGameStart(updateCount: HTMLParagraphElement){
     this.timer = setInterval(()=> {
       this.count++;
+      this.gameStart.emit({count: this.count});
     }, 1000);
-    this.gameStart.emit({count: this.count});
   }
   onGameStop(){
     console.log(typeof clearInterval(this.timer));
