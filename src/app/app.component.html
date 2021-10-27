@@ -37,13 +37,28 @@
   >
   </app-game-control>
   <div class="row">
-    <div class="colxs-12">
+    <div class="col-xs-12">
       <app-even [evenNum]="evenNum" *ngFor="let evenNum of evenNumbers"></app-even>
     </div>
   </div>
   <div class="row">
-    <div class="colxs-12">
+    <div class="col-xs-12">
       <app-odd [oddNum]="oddNum" *ngFor="let oddNum of oddNumbers"></app-odd>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-directive></app-directive>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div [ngSwitch]="value">
+        <p *ngSwitchCase="5">Value is 5</p>
+        <p *ngSwitchCase="10">Value is 10</p>
+        <p *ngSwitchCase="100">Value is 100</p>
+        <p *ngSwitchDefault>Value is Default</p>
+      </div>
     </div>
   </div>
 </div>

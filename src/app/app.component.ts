@@ -8,6 +8,7 @@ import { Server } from './server.model';
 })
 export class AppComponent {
   title = 'components-databinding';
+  value : number = 10;
   startCount: number = 0;
   oddNumbers : number[] = [];
   evenNumbers : number[] = [];
